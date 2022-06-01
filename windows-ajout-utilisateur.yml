@@ -1,0 +1,40 @@
+- hosts: Server2016
+  vars_prompt:
+
+    - name: name
+      prompt: Saisir le nom complet (Prénom + NOM)
+      private: no
+
+    - name: username
+      prompt: Saisir le Prénom
+      private: no
+
+    - name: surname
+      prompt: Saisir le nom de famille
+      private: no
+
+    - name: password
+      prompt: Saisir le mot de passe
+      private: no
+
+    - name: email
+      prompt: Saisir l'adresse electronique
+      private: no
+
+    - name: upn
+      prompt: Saisir le nom d'ouverture de session (pnom)
+      private: no
+
+
+  tasks:
+    - name: Ajout d'un Utilisateur
+      community.windows.win_domain_user:
+        name: "{{name}}"
+        firstname: "{{username}}"
+        surname: "{{surname}}"
+        password: "{{password}}"
+        email: "{{email}}"
+        upn: "{{upn}}"
+        state: present
+        path: ou=IP,ou=SITEC,ou=SIEEEN,dc=domaine,dc=local
+
