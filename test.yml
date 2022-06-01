@@ -1,0 +1,5 @@
+- hosts: Server2016
+  remote_user: administrateur
+  tasks:
+    - name: Ping
+      action: win_ping
