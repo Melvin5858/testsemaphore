@@ -1,4 +1,4 @@
-- hosts: ubuntu
+- hosts: windows
   tasks:
     - name: test
       debug: msg="Ceci est un test !!!"
