@@ -1,5 +1,4 @@
 - hosts: semaphore
   tasks:
-  
     - name: test
       debug: msg="Ceci est un test !!!"
