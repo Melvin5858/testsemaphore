@@ -1,5 +1,5 @@
-- hosts: Server2016
-  remote_user: administrateur
+- hosts: semaphore
   tasks:
-    - name: Ping
-      action: win_ping
+  
+    - name: test
+      debug: msg="Ceci est un test !!!"
