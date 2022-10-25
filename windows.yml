@@ -6,10 +6,11 @@
 
   tasks:
   
-  - name: Suppression des règles par défaut de FusionInventory-Agent
-    ansible.windows.win_powershell:
-      script: |
-        Remove-NetFirewallRule -DisplayName 'FusionInventory-Agent'                
+ # - name: Suppression des règles par défaut de FusionInventory-Agent
+ #   ansible.windows.win_powershell:
+ #     script: |
+ #       Remove-NetFirewallRule -DisplayName 'FusionInventory-Agent'   
+        
   - name: Autorisation du serveur GLPI + Localhost sur le port 62354
     win_firewall_rule:
       name: FusionInventory-Agent
