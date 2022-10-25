@@ -2,7 +2,7 @@
 
   vars:
    # ip: "{{ lookup('file', '{{/etc/ansible/files/ipset/admin_sys}}').splitlines() | regex_findall('\\b(?:[0-9]{1,3}\\.){3}[0-9]{1,3}\\b', multiline=True)}}"
-    ip: "{{ lookup('file', '{{etc/ansible/admin_sys}}').splitlines()}}"
+    ip: "{{ lookup('file', '{{/etc/ansible/admin_sys}}').splitlines()}}"
     
   tasks:  
     
