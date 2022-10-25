@@ -2,6 +2,7 @@
   vars:
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     ansible_user: WindowsAnsible
+    ansible_password: WindowsAnsible
   
  
   tasks:
