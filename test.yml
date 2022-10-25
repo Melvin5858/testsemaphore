@@ -1,7 +1,6 @@
 - hosts: windows
   vars:
     ansible_user: WindowsAnsible
-    ansible_password: WindowsAnsible
  
   tasks:
     
