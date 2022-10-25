@@ -1,8 +1,8 @@
 - hosts: windows
   vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+ #   ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
     ansible_user: WindowsAnsible
-  
+    ansible_host: 192.168.10.210
  
   tasks:
     
