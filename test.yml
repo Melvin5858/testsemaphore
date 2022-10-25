@@ -1,6 +1,4 @@
 - hosts: windows
-  vars:
-    ansible_user: WindowsAnsible
  
   tasks:
     
