@@ -1,4 +1,5 @@
 - hosts: linux
+  gather_facts: no
   tasks:
     - name: test
       debug: msg="Ceci est un test !!!"
