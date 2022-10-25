@@ -63,8 +63,8 @@
     community.general.ufw:
       rule: allow
       port: '22'
-      src: "{{item}}"
-    loop: "{{ip}}"
+      src: "{{ip}}"
+   # loop: "{{ip}}"
     when: (ansible_facts['distribution'] == "Ubuntu")    
 
   - name: Autorisation des adresses IP pour Ubuntu sur le port 161
