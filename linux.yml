@@ -5,6 +5,7 @@
     
   tasks:  
     
+    
   - name: Autorisation de l'authentification par clé SSH
     lineinfile:
       dest: /etc/ssh/sshd_config
