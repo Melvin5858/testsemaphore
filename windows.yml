@@ -1,1 +1,63 @@
+- hosts: windows
+  gather_facts: no
 
+# vars:
+#    ip: "{{ lookup('file', '{{file}}')}}"
+
+  tasks:
+  
+  - name: Suppression des règles par défaut de FusionInventory-Agent
+    ansible.windows.win_powershell:
+      script: |
+        Remove-NetFirewallRule -DisplayName 'FusionInventory-Agent'                
+  - name: Autorisation du serveur GLPI + Localhost sur le port 62354
+    win_firewall_rule:
+      name: FusionInventory-Agent
+      remoteip: 192.168.10.213,127.0.0.1
+      localport: 62354
+      action: allow
+      protocol: tcp
+      direction: in
+      state: present
+      enabled: yes
+
+  - name: Suppression de la règle par défaut de TightVNC
+    win_firewall_rule:
+      name: TightVNC
+      state: absent
+
+ # - name: Autorisation des adresses IP sur le port 5900
+ #   win_firewall_rule:
+ #     name: TightVNC
+ #     remoteip: "{{ip}}"
+ #     localport: 5900
+ #     action: allow
+ #     protocol: tcp
+ #     direction: in
+ #     state: present
+ #     enabled: yes
+
+  - name: Désactivation des téléchargements à partir d'autres PC (Fermeture du port 7680)
+    ansible.windows.win_regedit:
+      path: HKLM:\SYSTEM\CurrentControlSet\Services\DoSvc
+      name: Start
+      data: 4
+      type: dword
+
+  - name: Fermeture de port 5040
+    win_firewall_rule:
+      name: Block 5040
+      localport: 5040
+      action: block
+      protocol: tcp
+      direction: in
+      state: present
+      enabled: yes
+
+  - name: Activation du pare-feu
+    win_firewall:
+      state: enabled
+
+#  - name: Redémarrage de la machine
+#    ansible.windows.win_reboot:
+#      reboot_timeout: 3600
