@@ -1,8 +1,16 @@
 - hosts: windows
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_user: WindowsAnsible
+  
  
   tasks:
     
   - name: test
     debug: msg="Ceci est un test"
+    
+    
+   
+
       
 
