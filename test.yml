@@ -1,4 +1,4 @@
-- hosts: linux
+- hosts: windows
   gather_facts: no
   tasks:
     - name: test
