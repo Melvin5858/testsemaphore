@@ -1,9 +1,9 @@
 - hosts: windows
   gather_facts: no
-  
-    tasks:
+ 
+  tasks:
     
-    - name: test
-      debug: msg="Ceci est un test"
+  - name: test
+    debug: msg="Ceci est un test"
       
 
