@@ -1,5 +1,8 @@
 - hosts: windows
   gather_facts: no
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
+    ansible_user: WindowsAnsible
 
 # vars:
 #    ip: "{{ lookup('file', '{{file}}')}}"
