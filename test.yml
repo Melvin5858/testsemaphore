@@ -1,6 +1,4 @@
 - hosts: linux
-  gather_facts: no
- 
   tasks:
     
   - name: test
