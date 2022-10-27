@@ -1,4 +1,4 @@
-- hosts: linux
+- hosts: ubuntu
   tasks:
     
   - name: test
