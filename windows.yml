@@ -1,11 +1,7 @@
 - hosts: windows
-  gather_facts: no
-  vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
-    ansible_user: WindowsAnsible
 
-# vars:
-#    ip: "{{ lookup('file', '{{file}}')}}"
+ vars:
+    ip: "{{ lookup('file', '{{file}}')}}"
 
   tasks:
   
@@ -33,16 +29,16 @@
       name: TightVNC
       state: absent
 
- # - name: Autorisation des adresses IP sur le port 5900
- #   win_firewall_rule:
- #     name: TightVNC
- #     remoteip: "{{ip}}"
- #     localport: 5900
- #     action: allow
- #     protocol: tcp
- #     direction: in
- #     state: present
- #     enabled: yes
+  - name: Autorisation des adresses IP sur le port 5900
+    win_firewall_rule:
+      name: TightVNC
+      remoteip: "{{ip}}"
+      localport: 5900
+      action: allow
+      protocol: tcp
+      direction: in
+      state: present
+      enabled: yes
 
   - name: Désactivation des téléchargements à partir d'autres PC (Fermeture du port 7680)
     ansible.windows.win_regedit:
