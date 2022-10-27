@@ -4,6 +4,10 @@
   - name: test
     debug: msg="test"
     
+  - name: re-test
+    ufw:
+      state: enabled
+    
     
      
     
