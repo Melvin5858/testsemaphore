@@ -1,6 +1,6 @@
 - hosts: windows
 
- vars:
+  vars:
     ip: "{{ lookup('file', '{{file}}')}}"
 
   tasks:
