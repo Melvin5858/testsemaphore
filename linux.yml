@@ -5,22 +5,22 @@
 
   tasks:  
     
-#  - name: Autorisation de l'authentification par clé SSH
-#    lineinfile:
-#      dest: /etc/ssh/sshd_config
-#      regexp: '#PubkeyAuthentication yes'
-#      line: 'PubkeyAuthentication yes'
+  - name: Autorisation de l'authentification par clé SSH
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '#PubkeyAuthentication yes'
+      line: 'PubkeyAuthentication yes'
 
-#  - name: Interdiction de l'authentification par mot de passe
-#    lineinfile:
-#      dest: /etc/ssh/sshd_config
-#      regexp: '#PasswordAuthentication yes'
-#      line: 'PasswordAuthentication no'
+  - name: Interdiction de l'authentification par mot de passe
+    lineinfile:
+      dest: /etc/ssh/sshd_config
+      regexp: '#PasswordAuthentication yes'
+      line: 'PasswordAuthentication no'
 
-#  - name: Redémarrage du service SSH
-#    service:
-#      name: sshd
-#      state: restarted	
+  - name: Redémarrage du service SSH
+    service:
+      name: sshd
+      state: restarted	
 
   - name: Réinitialisation du service UFW pour Ubuntu
     ufw:
