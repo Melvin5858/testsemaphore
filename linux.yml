@@ -38,26 +38,29 @@
       state: stopped
     when: (ansible_facts['distribution'] == "CentOS") or (ansible_facts['distribution'] == "Rocky")
 
+  - name: Utilisation du module service_facts
+    service_facts:
+
   - name: Installation du service UFW pour Ubuntu
     apt:
       name: ufw
       state: present
       update_cache: yes
-    when: (ansible_facts['distribution'] == "Ubuntu") and (ufw is undefined)
+    when: (ansible_facts['distribution'] == "Ubuntu") and (ansible_facts.services['ufw.service'] is undefined)
 
   - name: Installation du service Firewalld pour CentOS
     yum:
       name: firewalld
       state: present
       update_cache: yes
-    when: (ansible_facts['distribution'] == "CentOS") and (firewalld is undefined)
+    when: (ansible_facts['distribution'] == "CentOS") and (ansible_facts.services['firewalld.service'] is undefined)
 
   - name: Installation du service Firewalld pour RedHat
     dnf:
       name: firewalld
       state: present
       update_cache: yes
-    when: (ansible_facts['distribution'] == "Rocky") and (firewalld is undefined)
+    when: (ansible_facts['distribution'] == "Rocky") and (ansible_facts.services['firewalld.service'] is undefined)
 
   - name: Autorisation du serveur Ansible pour Ubuntu sur le port 22
     community.general.ufw:
