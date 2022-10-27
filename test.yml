@@ -4,13 +4,6 @@
   - name: test
     debug: msg="test"
     
-    
-    
-    #community.general.ufw:
-    #  rule: allow
-    #  port: '50'
-    #  src: 192.168.10.45
-     
      
     
     
