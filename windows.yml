@@ -5,9 +5,6 @@
 
   tasks:
   
-  - name: test
-    debug: msg="teeeeest"
-  
   - name: Suppression des règles par défaut de FusionInventory-Agent
     ansible.windows.win_powershell:
       script: |
