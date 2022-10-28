@@ -58,6 +58,6 @@
     win_firewall:
       state: enabled
 
-#  - name: Redémarrage de la machine
-#    ansible.windows.win_reboot:
-#      reboot_timeout: 3600
+  - name: Redémarrage de la machine
+    ansible.windows.win_reboot:
+      reboot_timeout: 3600
