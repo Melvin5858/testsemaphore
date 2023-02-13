@@ -39,7 +39,7 @@
     when: (ansible_facts['distribution'] == "CentOS") or (ansible_facts['distribution'] == "Rocky")
 
   - name: Utilisation du module service_facts
-    service_facts:
+    ansible.builtin.service_facts:
 
   - name: Installation du service UFW pour Ubuntu
     apt:
